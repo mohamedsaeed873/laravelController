@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\UserProfileController;
+use Illuminate\Database\Console\Migrations\RollbackCommand;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -34,4 +36,7 @@ Route::controller(PostController::class)->group(function () {
 Route::resource('users', UserController::class)->only([
     'create','index'
 ]);
+//------------__invoke__-----------
+
+Route::get('user_profile', UserProfileController::class);
 
