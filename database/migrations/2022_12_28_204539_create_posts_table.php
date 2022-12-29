@@ -16,6 +16,12 @@ return new class extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
             $table->string('title', 5);
+
+            //$table->unsignedBigInteger('user_id');
+            //$table->foreign('user_id')->references('id')->on('users');
+
+            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
+
             $table->boolean('check')->default(0);
             $table->timestamps();
         });
